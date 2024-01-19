@@ -127,13 +127,13 @@ button:hover {
     }
 
     h1{
-          font-size: 2rem;
+          font-size: 2.5rem;
         color: #E7F6FF;
     }
-    button{
-        width: 60px;
-        height: 60px;
-        font-size: .7rem;
-        margin: 10px
+    button {
+        width: 80px;
+        height: 80px;
+        font-size: 1rem;
+        margin: 10px;
     }
 }
