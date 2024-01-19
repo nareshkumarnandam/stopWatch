@@ -43,6 +43,8 @@ function resetTimer(){
     timerDisplay.textContent = "00:00:00";
     startbtn.disabled = false;
     pausebtn.disabled = true;
+    lapsArea.innerHTML = "";
+    removeDiv();
 }
 
 function updateTimer(){
@@ -61,7 +63,7 @@ function updateTimer(){
 
 }
 
-console.log(timerDisplay.value)
+// console.log(timerDisplay.value)
 
 document.querySelector('.lapBtn').addEventListener("click", ()=>{
     laptimer();
@@ -71,7 +73,7 @@ document.querySelector('.lapBtn').addEventListener("click", ()=>{
 function laptimer(){
     let lapDiv = document.createElement("div");
     lapDiv.innerHTML = `${timerDisplay.textContent}<span class="cancel">x</span>`
-    console.log(lapDiv);
+    // console.log(lapDiv);
     lapDiv.classList.add("lapDiv");
     lapsArea.classList.add("lapsArea");
     lapsArea.appendChild(lapDiv);
@@ -83,10 +85,18 @@ function removeLap(){
     cancelBtn.forEach((val) => {
         val.addEventListener("click", () => {
             val.parentElement.remove();
+            removeDiv();
         })
     })
+    // console.log(lapsArea.children.length);
+    
 }
 
-if(lapsArea.children.length === 0){
-    lapsArea.classList.remove("lapsArea");
+function removeDiv(){
+    if(lapsArea.children.length === 0){
+        // console.log(lapsArea);
+        // lapsArea.innerHTML = "";
+        lapsArea.classList.remove("lapsArea");
+        mainCont.style.marginTop = "0";
+    }
 }
